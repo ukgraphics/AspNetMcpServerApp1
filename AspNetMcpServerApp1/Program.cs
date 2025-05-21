@@ -36,12 +36,12 @@ public static class WeatherForecastTool
 
         string title = jsonDocument.RootElement
             .GetProperty("title")
-            .GetString() ?? string.Empty; // Nullチェック
+            .GetString() ?? string.Empty; 
 
         string weatherforecast = jsonDocument.RootElement
             .GetProperty("description")
             .GetProperty("bodyText")
-            .GetString() ?? string.Empty; // Nullチェック
+            .GetString() ?? string.Empty;
 
         return $"{title}：{weatherforecast}";
     }
