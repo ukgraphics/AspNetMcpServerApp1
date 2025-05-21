@@ -1,7 +1,5 @@
 using ModelContextProtocol.Server;
 using System.ComponentModel;
-using System.Globalization;
-using System.Net.Http.Headers;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,7 +34,7 @@ public static class WeatherForecastTool
 
         string title = jsonDocument.RootElement
             .GetProperty("title")
-            .GetString() ?? string.Empty; 
+            .GetString() ?? string.Empty;
 
         string weatherforecast = jsonDocument.RootElement
             .GetProperty("description")
