@@ -18,10 +18,12 @@ app.Run();
 public static class WeatherForecastTool
 {
     [McpServerTool, Description("天気予報を取得")]
-    public static async Task<string> GetWeatherForecastCity(HttpClient client, string citycode)
+    public static async Task<string> GetWeatherForecastCity(
+        HttpClient client,
+        [Description("地域別に定義されたID番号（https://weather.tsukumijima.net/primary_area.xml）")] string citycode)
     {
         // 天気予報API（https://weather.tsukumijima.net/）にHTTP GETリクエストを送信
-        HttpResponseMessage response = await client.GetAsync("https://weather.tsukumijima.net/api/forecast?city=" + citycode);
+        using HttpResponseMessage response = await client.GetAsync("https://weather.tsukumijima.net/api/forecast?city=" + citycode);
 
         // レスポンスを確認
         response.EnsureSuccessStatusCode();
