@@ -23,7 +23,7 @@ public static class WeatherForecastTool
         [Description("地域別に定義されたID番号（https://weather.tsukumijima.net/primary_area.xml）")] string citycode)
     {
         // 天気予報API（https://weather.tsukumijima.net/）にHTTP GETリクエストを送信
-        using HttpResponseMessage response = await client.GetAsync("https://weather.tsukumijima.net/api/forecast?city=" + citycode);
+        using HttpResponseMessage response = await client.GetAsync($"https://weather.tsukumijima.net/api/forecast?city={citycode}");
 
         // レスポンスを確認
         response.EnsureSuccessStatusCode();
